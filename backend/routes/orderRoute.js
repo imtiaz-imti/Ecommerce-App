@@ -1,0 +1,11 @@
+const {createOrder,getSingleOrderDetailsAdmin,getSingleOrderDetailsUser,getAllOrder,updateOrderStatus,deleteOrder} = require('../controllers/orderController')
+const {isAuthenticatedUser,isAuthorizedRole} = require('../extra')
+const express = require('express')
+const router = express.Router()
+router.route('/new').post(isAuthenticatedUser,createOrder)
+router.route('/details/:id').get(isAuthenticatedUser,isAuthorizedRole('admin'),getSingleOrderDetailsAdmin)
+router.route('/details').get(isAuthenticatedUser,getSingleOrderDetailsUser)
+router.route('/admin/details/all').get(isAuthenticatedUser,isAuthorizedRole('admin'),getAllOrder)
+router.route('/status/:id').put(isAuthenticatedUser,isAuthorizedRole('admin'),updateOrderStatus)
+router.route('/delete/:id').delete(isAuthenticatedUser,isAuthorizedRole('admin'),deleteOrder)
+module.exports = router
