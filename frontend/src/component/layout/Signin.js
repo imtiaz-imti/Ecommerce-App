@@ -18,7 +18,7 @@ const Signin = () => {
       password:document.getElementById('password').value,
     }
     try {
-      await axios.post('api/v1/user/login',body)
+      await axios.post('/api/v1/user/login',body)
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'

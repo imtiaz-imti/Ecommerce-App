@@ -3,7 +3,7 @@ import { ALL_PRODUCT_FAIL,ALL_PRODUCT_SUCCESS,ALL_PRODUCT_REQUEST,ALL_PRODUCT_DE
 export const getProduct = (searchValue)=> async (dispatch)=>{
     try {
         dispatch({type:ALL_PRODUCT_REQUEST})
-        const {data} = await axios.get('api/v1/products?keyword=' + searchValue)
+        const {data} = await axios.get('/api/v1/products?keyword=' + searchValue)
         setTimeout(() => {
             dispatch({type:ALL_PRODUCT_SUCCESS,payload:data})
         },3000)
@@ -13,7 +13,7 @@ export const getProduct = (searchValue)=> async (dispatch)=>{
 }
 export const getProductNames = ()=> async (dispatch)=>{
     try {
-        const {data} = await axios.get('api/v1/products')
+        const {data} = await axios.get('/api/v1/products')
         dispatch({type:'PRODUCT_NAMES',payload:data.map(data=>data.name)})
     } catch (error) {
         console.log(error.message)
