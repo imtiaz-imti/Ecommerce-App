@@ -1,6 +1,6 @@
 import React from 'react'
 import MetaData from './MetaData'
-const Home = () => {
+const Home = async () => {
   return (
     <div className='homecompo'>
        <MetaData title='Home Page'/>
