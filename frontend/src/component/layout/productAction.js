@@ -3,7 +3,7 @@ import { ALL_PRODUCT_FAIL,ALL_PRODUCT_SUCCESS,ALL_PRODUCT_REQUEST,ALL_PRODUCT_DE
 export const getProduct = (searchValue)=> async (dispatch)=>{
     try {
         dispatch({type:ALL_PRODUCT_REQUEST})
-        const {data} = await axios.get('/api/v1/products')
+        const {data} = await axios.get('https://ecommerce-backend-foou.onrender.com/api/v1/products')
         setTimeout(() => {
             dispatch({type:ALL_PRODUCT_SUCCESS,payload:data})
         },3000)
