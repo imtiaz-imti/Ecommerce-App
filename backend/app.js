@@ -14,9 +14,9 @@ app.use('/api/v1/order',router)
 app.use(errorHandler)
 app.use(sendToken)
 app.use(cookieParser())
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-    next()
-})
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) 
+    .AllowCredentials())
 module.exports = app
