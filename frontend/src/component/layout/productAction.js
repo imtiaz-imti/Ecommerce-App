@@ -7,7 +7,6 @@ export const getProduct = (searchValue)=> async (dispatch)=>{
         console.log(data)
         dispatch({type:ALL_PRODUCT_SUCCESS,payload:data})
     } catch (error) {
-        // console.log(error)
         dispatch({type:ALL_PRODUCT_FAIL,payload:error.response.data.message})
     }
 }
