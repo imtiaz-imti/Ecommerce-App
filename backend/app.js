@@ -14,9 +14,4 @@ app.use('/api/v1/order',router)
 app.use(errorHandler)
 app.use(sendToken)
 app.use(cookieParser())
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true) 
-    .AllowCredentials())
 module.exports = app
