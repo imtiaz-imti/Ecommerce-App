@@ -5,11 +5,9 @@ export const getProduct = (searchValue)=> async (dispatch)=>{
         dispatch({type:ALL_PRODUCT_REQUEST})
         const {data} = await axios.get('/api/v1/products')
         console.log(data)
-        setTimeout(() => {
-            dispatch({type:ALL_PRODUCT_SUCCESS,payload:data})
-        },3000)
+        dispatch({type:ALL_PRODUCT_SUCCESS,payload:data})
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         dispatch({type:ALL_PRODUCT_FAIL,payload:error.response.data.message})
     }
 }
