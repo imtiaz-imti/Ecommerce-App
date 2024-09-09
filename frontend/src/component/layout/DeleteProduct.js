@@ -42,7 +42,8 @@ const DeleteProduct = ({props}) => {
         return
       }
       try {
-        await axios.delete('api/v1/admin/products/'+pro._id)
+        const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})  
+        await api.delete('api/v1/admin/products/'+pro._id)
         document.getElementById('t3').style.visibility = 'visible'
         window.location.reload()
       } catch (error) {}
