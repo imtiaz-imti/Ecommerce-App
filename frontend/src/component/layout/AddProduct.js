@@ -49,7 +49,8 @@ const AddProduct = ({props}) => {
         document.getElementById('noimage').style.visibility = 'visible'
       }
       try {
-        await axios.post('api/v1/admin/products/new',body)
+        const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})  
+        await api.post('api/v1/admin/products/new',body)
         document.getElementById('t1').style.visibility = 'visible'
         window.location.reload()
       } catch (error) {
