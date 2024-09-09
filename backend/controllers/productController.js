@@ -20,13 +20,13 @@ const getAllProduct = async (req,res,next)=>{
       if(ele.length>0){
         ele = (await apiFeatures.filter(ele)).query
         if(ele.length === 0){return next(new ErrorHander('product not found',404))}
-        return res.status(200).json(ele)
+        return res.status(200).setHeader('Access-control-allow-origin','*').json(ele)
       }
       return next(new ErrorHander('product not found',404))
     }
     data = (await apiFeatures.filter(data)).query
     if(data.length === 0){return next(new ErrorHander('product not found',404))}
-    res.status(200).json(data)
+    res.status(200).setHeader('Access-control-allow-origin','*').json(data)
   }catch(err){
     console.log(err.message)
     return next(new ErrorHander('Server Error',404))
