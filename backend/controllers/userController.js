@@ -41,7 +41,7 @@ const logoutUser = async (req,res,next)=>{
          expires: new Date(Date.now()),
          httpOnly:true
       }
-      res.status(200).cookie('token',null,options).json({success:true,message:'user logged out successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').cookie('token',null,options).json({success:true,message:'user logged out successfully'})
    }catch(err){
     return next(new ErrorHander(err.message,404))
    }
@@ -63,7 +63,7 @@ const forgotPassword = async (req,res,next)=>{
          //    subject:'Ecommerce Password Recovery',
          //    message
          // })
-         res.status(200).json({success:true,message:`Email sent to ${newUser.email} successfully`}) 
+         res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:`Email sent to ${newUser.email} successfully`}) 
       }catch(err){
          this.resetPasswordToken = undefined
          this.resetPasswordExpire = undefined
@@ -92,7 +92,7 @@ const resetPassword = async (req,res,next)=>{
 const getUserDetails = async (req,res,next)=>{
    try{
       const newUser = await user.findById(req.user.id)
-      res.status(200).json({success:true,newUser})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,newUser})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -104,7 +104,7 @@ const changePassword = async (req,res,next)=>{
       if(req.body.newPassword !== req.body.confirmPassword){return next(new ErrorHander('password not matching',404))}
       newUser.password = req.body.newPassword
       await newUser.save({validateBeforeSave:false})
-      res.status(200).json({success:true,message:'password changed successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'password changed successfully'})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -112,7 +112,7 @@ const changePassword = async (req,res,next)=>{
 const updateProfile = async (req,res,next)=>{
    try{
       await user.findByIdAndUpdate(req.user.id,req.body,{new:true,runValidators:true,useFindAndModify:false})
-      res.status(200).json({success:true,message:'user profile updated successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'user profile updated successfully'})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -120,7 +120,7 @@ const updateProfile = async (req,res,next)=>{
 const getAllUser = async (req,res,next)=>{
    try{
       const users = await user.find()
-      res.status(200).json({success:true,users})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,users})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -129,7 +129,7 @@ const getSingleUser = async (req,res,next)=>{
    try{
       const singleUser = await user.findById(req.params.id)
       if(!singleUser){return next(new ErrorHander('user does not exist',404))}
-      res.status(200).json({success:true,singleUser})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,singleUser})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -139,7 +139,7 @@ const userUpdateProfileByAdmin = async (req,res,next)=>{
       const singleUser = await user.findById(req.params.id)
       if(!singleUser){return next(new ErrorHander('user does not exist',404))}
       await user.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true,useFindAndModify:false})
-      res.status(200).json({success:true,message:'user profile updated successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'user profile updated successfully'})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -149,7 +149,7 @@ const userDeleteByAdmin = async (req,res,next)=>{
       const singleUser = await user.findById(req.params.id)
       if(!singleUser){return next(new ErrorHander('user does not exist',404))}
       await user.deleteOne(singleUser)
-      res.status(200).json({success:true,message:'user deleted successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'user deleted successfully'})
    }catch(err){
       return next(new ErrorHander(err.message,404))
    }
@@ -163,7 +163,7 @@ const uploadProfilePicture = async (req,res,next)=>{
          }
       }
       await user.findByIdAndUpdate(req.user.id,body,{new:true,runValidators:true,useFindAndModify:false})
-      res.status(200).json({success:true,message:'picture uploaded successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'picture uploaded successfully'})
    }catch(err){
       console.log(err.message)
       return next(new ErrorHander(err.message,404))
