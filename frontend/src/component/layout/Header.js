@@ -17,7 +17,8 @@ const Header = () => {
   }
   const logout = async ()=>{
     try {
-      await axios.post('/api/v1/user/logout')
+      const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+      await api.post('/api/v1/user/logout')
       dispatch(getUserDetails())
     } catch (error) {}
   }
