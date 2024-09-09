@@ -6,7 +6,7 @@ const createProduct = async (req,res,next)=>{
   try{
     req.body.user = req.user.id
     const data = await product.create(req.body)
-    res.status(201).json({success:true,message:'product created successfully',data})
+    res.status(201).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'product created successfully',data})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
@@ -37,7 +37,7 @@ const updateProduct = async (req,res,next)=>{
     const data = await product.findById(req.params.id)
     if(!data){return next(new ErrorHander('product not found',404))}
     await product.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true,useFindAndModify:false})
-    res.status(200).json({success:true,message:'product updated successfully',data})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'product updated successfully',data})
   }catch(err){
     console.log(err.message)
     return next(new ErrorHander('Server Error',404))
@@ -47,7 +47,7 @@ const deleteProduct = async (req,res,next)=>{
     try{
       const data = await product.findById(req.params.id)
       await product.deleteOne(data)
-      res.status(200).json({success:true,message:'product deleted successfully'})
+      res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'product deleted successfully'})
     }catch(err){
       return next(new ErrorHander('Server Error',404))
     }
@@ -55,7 +55,7 @@ const deleteProduct = async (req,res,next)=>{
 const getProductDetails = async (req,res,next)=>{
   try{
     const data = await product.findById(req.params.id)
-    res.status(200).json({success:true,data})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,data})
   }catch(err){
     return next(new ErrorHander('Server Error',404))
   }
@@ -72,7 +72,7 @@ const userReview = async (req,res,next)=>{
       ele.reviews.forEach((element)=>{avg+=element.rating})
       ele.rating = avg/ele.reviews.length 
       await ele.save({validateBeforeSave:false})
-      return res.status(200).json({success:true,message:'review updated successfully',ele})
+      return res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'review updated successfully',ele})
     }
     const rev = {
       name:req.user.name,
@@ -86,7 +86,7 @@ const userReview = async (req,res,next)=>{
     ele.reviews.forEach((element)=>{avg+=element.rating})
     ele.rating = avg/ele.reviews.length 
     await ele.save({validateBeforeSave:false})
-    res.status(200).json({success:true,message:'review added successfully',ele})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'review added successfully',ele})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   }
@@ -95,7 +95,7 @@ const getAllReview = async (req,res,next)=>{
   try{
     const ele = await product.findById(req.params.id)
     if(!ele){return next(new ErrorHander('product not found',404))}
-    res.status(200).json({success:true,reviews:ele.reviews})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,reviews:ele.reviews})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   }
@@ -114,7 +114,7 @@ const deleteReview = async (req,res,next)=>{
     ele.reviews.forEach((element)=>{avg+=element.rating})
     ele.rating = avg/ele.reviews.length
     await ele.save({validateBeforeSave:false})
-    res.status(200).json({success:true,message:'review deleted successfully',ele})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'review deleted successfully',ele})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   }
