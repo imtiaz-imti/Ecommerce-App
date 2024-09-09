@@ -38,7 +38,8 @@ const imageChange = async (event)=>{
   try {
     const formData = new FormData()
     formData.append('image',event.target.files[0])
-    await axios.post('/api/v1/user/profile/upload',formData,{headers : {'Content-Type' : 'multipart/form-data'}})
+    const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+    await api.post('/api/v1/user/profile/upload',formData,{headers : {'Content-Type' : 'multipart/form-data'}})
     dispatch(getUserDetails())
     if(userDetails && userDetails.avatar){
       const TYPED_ARRAY = new Uint8Array(userDetails.avatar.data.data)
