@@ -13,7 +13,6 @@ const createProduct = async (req,res,next)=>{
 }
 const getAllProduct = async (req,res,next)=>{
   try{
-    console.log('hello')
     const apiFeatures = await new ApiFeatures(req.query).search()
     let data = apiFeatures.query
     if(data.length === 0){
