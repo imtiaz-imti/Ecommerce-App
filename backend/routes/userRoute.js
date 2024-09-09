@@ -3,6 +3,7 @@ const {createUser,loginUser,logoutUser,forgotPassword,resetPassword,getUserDetai
 const {isAuthenticatedUser,isAuthorizedRole} = require('../extra')
 const router = express.Router()
 const multer = require('multer')
+const cors = require('cors')
 const storage = multer.diskStorage({
     destination: './uploads',
     filename: function (req, file, cb) {
@@ -13,7 +14,7 @@ const upload = multer({ storage: storage })
 router.route('/admin/all').get(isAuthenticatedUser,isAuthorizedRole('admin'),getAllUser)
 router.route('/admin/:id').get(isAuthenticatedUser,isAuthorizedRole('admin'),getSingleUser)
 router.route('/new').post(createUser)
-router.route('/login').post(loginUser)
+router.route('/login').post(cors(),loginUser)
 router.route('/logout').post(logoutUser)
 router.route('/password/forgot').post(forgotPassword)
 router.route('/password/reset/:token').put(resetPassword)
