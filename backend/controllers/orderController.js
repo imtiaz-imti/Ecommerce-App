@@ -5,7 +5,7 @@ const createOrder = async (req,res,next)=>{
     try{
       req.body.userID = req.user.id  
       const newOrder = await order.create(req.body)
-      res.status(201).json({success:true,message:'order created successfully',newOrder})
+      res.status(201).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'order created successfully',newOrder})
     }catch(err){
       console.log(err.message)
       return next(new ErrorHander(err.message,404))
@@ -15,7 +15,7 @@ const getSingleOrderDetailsAdmin = async (req,res,next)=>{
   try{  
     const newOrder = await order.findById(req.params.id)
     if(!newOrder){return next(new ErrorHander('order not found',404))}
-    res.status(200).json({success:true,newOrder})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,newOrder})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
@@ -24,7 +24,7 @@ const getSingleOrderDetailsUser = async (req,res,next)=>{
   try{  
     const newOrder = await order.find({userID:req.user.id})
     if(!newOrder){return next(new ErrorHander('you have not ordered yet',404))}
-    res.status(200).json({success:true,newOrder})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,newOrder})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
@@ -37,7 +37,7 @@ const getAllOrder = async (req,res,next)=>{
        totalAmount+=ele.totalPrice
     })
     if(newOrder.length === 0){return next(new ErrorHander('no ordered yet',404))}
-    res.status(200).json({success:true,totalAmount,newOrder})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,totalAmount,newOrder})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
@@ -61,7 +61,7 @@ const updateOrderStatus = async (req,res,next)=>{
     newOrder.deliverDate = `${day}/${month}/${year}`
     newOrder.deliverTime = `${hours>12?hours-12:(hours===0?'00':hours)}:${minutes<10?'0'+minutes:minutes} ${hours >= 12 ? 'PM' : 'AM'}`
     await newOrder.save({validateBeforeSave:false})
-    res.status(200).json({success:true,newOrder})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,newOrder})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
@@ -71,7 +71,7 @@ const deleteOrder = async (req,res,next)=>{
     const newOrder = await order.findById(req.params.id)
     if(!newOrder){return next(new ErrorHander('order not found',404))}
     await order.deleteOne(newOrder)
-    res.status(200).json({success:true,message:'order deleted successfully'})
+    res.status(200).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'order deleted successfully'})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
