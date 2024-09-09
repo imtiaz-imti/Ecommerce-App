@@ -20,7 +20,11 @@ const getAllProduct = async (req,res,next)=>{
       if(ele.length>0){
         ele = (await apiFeatures.filter(ele)).query
         if(ele.length === 0){return next(new ErrorHander('product not found',404))}
-        return res.status(200).json(ele) 
+        return res.status(200).json(ele,{
+          headers:{
+            'Access-Control-Allow-Origin' : 'http://localhost:3000'
+          }
+        })
       }
       return next(new ErrorHander('product not found',404))
     }
