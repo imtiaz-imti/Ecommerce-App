@@ -40,7 +40,7 @@ const sendToken = (userNew,statusCode,res)=>{
      expires: new Date(Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
      httpOnly:true
   }  
-return res.status(statusCode).cookie('token',token,options).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTION').setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token').json({success:true,message:'user logged in successfully',token,userNew:userNew._id})
+return res.status(statusCode).cookie('token',token,options).setHeader('Access-Control-Allow-Origin', '*').setHeader('Access-Control-Allow-Methods', 'POST').json({success:true,message:'user logged in successfully',token,userNew:userNew._id})
 }
 const isAuthenticatedUser = async (req,res,next)=>{
   try{
