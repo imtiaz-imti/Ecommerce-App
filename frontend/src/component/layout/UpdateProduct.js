@@ -61,7 +61,8 @@ const UpdateProduct = ({props}) =>{
       }  
       try {
         const body = {name,description,price,category,stock:1,images:newImage}
-        await axios.put('api/v1/admin/products/'+pro._id,body)
+        const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})  
+        await api.put('api/v1/admin/products/'+pro._id,body)
         document.getElementById('t2').style.visibility = 'visible'
         window.location.reload()
       } catch (error) {}
