@@ -23,8 +23,7 @@ const createUser = async (req,res,next)=>{
    }
 }
 const loginUser = async (req,res,next)=>{
-   try{
-     return res.status(200).setHeader('Access-control-allow-origin','*').json(req.body) 
+   try{ 
      const {email,password} = req.body
      if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
      const userNew = await user.findOne({email}).select('+password')
