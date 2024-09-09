@@ -68,7 +68,8 @@ const MakeOrder = () =>{
       orderItems:nayaOrders,
       totalPrice:totalPrice
     }
-    await axios.post('/api/v1/order/new',body)
+    const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+    await api.post('/api/v1/order/new',body)
     document.getElementById('tao').style.visibility = 'visible'
     setTimeout(()=>{
       document.getElementById('tao').style.visibility = 'hidden'
