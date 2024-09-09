@@ -8,5 +8,5 @@ module.exports = (err,req,res,next)=>{
    if(err.code === 11000){
       err = new ErrorHander(`This email already exist`,400)
    }
-   res.status(err.statusCode).json({success:false,message:err.message}) 
+   res.status(err.statusCode).setHeader('Access-Control-Allow-Origin', '*').json({success:false,message:err.message}) 
 } 
