@@ -25,7 +25,8 @@ const AllUser = ({props}) => {
     if(props.user.role==='user'){role='admin'}
     const body = {role}
     try {
-      await axios.put('/api/v1/user/admin/profile/update/'+props.user._id,body)
+      const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+      await api.put('/api/v1/user/admin/profile/update/'+props.user._id,body)
       window.location.reload()
     } catch (error){}
   }
