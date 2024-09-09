@@ -6,7 +6,7 @@ const createProduct = async (req,res,next)=>{
   try{
     req.body.user = req.user.id
     const data = await product.create(req.body)
-    res.status(201).setHeader('Access-Control-Allow-Origin', '*').json({success:true,message:'product created successfully',data})
+    res.status(201).json({success:true,message:'product created successfully',data})
   }catch(err){
     return next(new ErrorHander(err.message,404))
   } 
