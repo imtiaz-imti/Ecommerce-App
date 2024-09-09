@@ -15,5 +15,7 @@ app.use('/api/v1/order',router)
 app.use(errorHandler)
 app.use(sendToken)
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({
+   origin: "http://localhost:3000"
+}))
 module.exports = app
