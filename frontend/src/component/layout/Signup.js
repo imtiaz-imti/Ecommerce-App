@@ -20,7 +20,8 @@ const Signup = () => {
       password:document.getElementById('password').value,
     }
     try {
-      await axios.post('api/v1/user/new',body)
+      const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+      await api.post('api/v1/user/new',body)
       dispatch(getUserDetails())
     } catch (error) {
       document.getElementById('namewrong').style.visibility = 'visible'
