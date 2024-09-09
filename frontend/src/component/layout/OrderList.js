@@ -19,7 +19,8 @@ const OrderList = ({orderDet}) => {
    } 
   },[status])
   const onDeliver = async ()=>{
-    await axios.put('/api/v1/order/status/'+orderDet._id)
+    const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
+    await api.put('/api/v1/order/status/'+orderDet._id)
     setStatus('delivered')
   }
   return (
