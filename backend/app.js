@@ -16,7 +16,7 @@ app.use(errorHandler)
 app.use(sendToken)
 app.use(cors({
   origin: '*',
-  methods: ['GET'],
+  methods: ['GET','POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   maxAge: 600
 }))
