@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage })
-router.options('*', cors())
+router.options('/score', cors())
 router.route('/admin/all').get(isAuthenticatedUser,isAuthorizedRole('admin'),getAllUser)
 router.route('/admin/:id').get(isAuthenticatedUser,isAuthorizedRole('admin'),getSingleUser)
 router.route('/new').post(createUser)
