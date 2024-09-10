@@ -23,6 +23,9 @@ const createUser = async (req,res,next)=>{
    }
 }
 const loginUser = async (req,res,next)=>{
+res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com')
+res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')  
+return res.status(200).json({success:true,message:'user logged in successfully'})
    try{ 
      const {email,password} = req.body
      if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
