@@ -28,9 +28,7 @@ const loginUser = async (req,res,next)=>{
      if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
      const userNew = await user.findOne({email}).select('+password')
      if(!userNew){return next(new ErrorHander('invalid email or password',401))}
-     if(!await userNew.comparePassword(password)){return next(new ErrorHander('invalid email or password',401))}
-     return res.status(200).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').json({success:true,message:'user logged in 
-     successfully'}) 
+     if(!await userNew.comparePassword(password)){return next(new ErrorHander('invalid email or password',401))} 
      sendToken(userNew,200,res) 
    }catch(err){
     console.log(err.message)  
