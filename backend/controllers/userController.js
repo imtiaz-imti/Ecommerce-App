@@ -22,10 +22,8 @@ const createUser = async (req,res,next)=>{
     return next(new ErrorHander(err.message,404).setCode(err.code))
    }
 }
-const loginUser = async (req,res,next)=>{
-res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com')
-res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')  
-return res.status(200).json({success:true,message:'user logged in successfully'})
+const loginUser = async (req,res,next)=>{  
+return res.status(200).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').json({success:true,message:'user logged in successfully'})
    try{ 
      const {email,password} = req.body
      if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
