@@ -11,11 +11,10 @@ const storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: storage })
-router.options('/score', cors())
 router.route('/admin/all').get(isAuthenticatedUser,isAuthorizedRole('admin'),getAllUser)
 router.route('/admin/:id').get(isAuthenticatedUser,isAuthorizedRole('admin'),getSingleUser)
 router.route('/new').post(createUser)
-router.route('/login').post(loginUser)
+router.options('/score', cors()).route('/login').post(loginUser)
 router.route('/logout').post(logoutUser)
 router.route('/password/forgot').post(forgotPassword)
 router.route('/password/reset/:token').put(resetPassword)
