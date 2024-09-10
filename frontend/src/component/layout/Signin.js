@@ -19,7 +19,7 @@ const Signin = () => {
     }
     try {
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
-      await api.get('/api/v1/user/login')
+      await api.post('/api/v1/user/login')
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'
