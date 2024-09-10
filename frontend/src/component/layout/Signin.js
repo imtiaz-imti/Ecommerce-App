@@ -13,13 +13,13 @@ const Signin = () => {
   const dispatch = useDispatch()
   const submit = async ()=>{
     document.getElementById('tao').style.visibility = 'visible'
-    const body = {
-      email:document.getElementById('email').value,
-      password:document.getElementById('password').value,
-    }
     try {
+      const body = {
+        email:document.getElementById('email').value,
+        password:document.getElementById('password').value,
+      }
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
-      await api.post('/api/v1/user/login')
+      await api.post('/api/v1/user/login',body)
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'
