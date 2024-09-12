@@ -7,6 +7,7 @@ import {getUserDetails} from './productAction'
 import Loader from './Loader'
 import Toast from './Toast'
 import MetaData from './MetaData'
+const qs = require('qs');
 const Signin = () => {
   const [compoLoading,setcompoLoading] = useState(true)
   const [value,setValue] = useState('')
@@ -18,13 +19,10 @@ const Signin = () => {
         "email":document.getElementById('email').value,
         "password":document.getElementById('password').value,
       }
-      axios.defaults.headers.common = {
-        "Content-Type": "application/json"
-      }
-      // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+      axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       console.log(body)
-      await api.post('/api/v1/user/login',body)
+      await api.post('/api/v1/user/login', qs.stringify(body))
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'
