@@ -18,8 +18,10 @@ const Signin = () => {
         email:document.getElementById('email').value,
         password:document.getElementById('password').value,
       }
-      // 'application/x-www-form-urlencoded'
-      axios.defaults.headers.post['Content-Type'] = 'application/json'
+      // 'application/x-www-form-urlencoded' text/plain
+      // axios.defaults.headers.post['Content-Type'] = 'application/json'
+      axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8'
+      axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       console.log(body)
       await api.post('/api/v1/user/login',body)
