@@ -24,11 +24,12 @@ const createUser = async (req,res,next)=>{
 }
 const loginUser = async (req,res,next)=>{  
    try{ 
-     const {email,password} = req.body
-     if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
-     const userNew = await user.findOne({email}).select('+password')
-     if(!userNew){return next(new ErrorHander('invalid email or password',401))}
-     if(!await userNew.comparePassword(password)){return next(new ErrorHander('invalid email or password',401))} 
+     // const {email,password} = req.body
+     // if(!email || !password){return next(new ErrorHander('please enter email and password',400))}
+     // const userNew = await user.findOne({email}).select('+password')
+     // if(!userNew){return next(new ErrorHander('invalid email or password',401))}
+     // if(!await userNew.comparePassword(password)){return next(new ErrorHander('invalid email or password',401))}
+     const userNew = '' 
      sendToken(userNew,200,res) 
    }catch(err){
     console.log(err.message)  
