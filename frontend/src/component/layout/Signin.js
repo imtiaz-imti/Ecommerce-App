@@ -19,11 +19,20 @@ const Signin = () => {
         "email":document.getElementById('email').value,
         "password":document.getElementById('password').value,
       }
-      axios({method: "POST",url: "https://retail-market-app-backend.onrender.com",data: body,withCredentials: true})
+      const api = axios.create({
+  baseURL: 'https://retail-market-app-backend.onrender.com',
+  timeout: 10000,
+  withCredentials: true,
+  transformRequest: [(data) => JSON.stringify(data.data)],
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
       // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
       // const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       // console.log(body)
-      // await api.post('/api/v1/user/login',body)
+      await api.post('/api/v1/user/login',body)
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'
