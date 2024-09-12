@@ -21,6 +21,7 @@ const Signin = () => {
       }
       const api = axios.create({
   baseURL: 'https://retail-market-app-backend.onrender.com',
+  data:body,      
   timeout: 10000,
   withCredentials: true,
   transformRequest: [(data) => JSON.stringify(data.data)],
