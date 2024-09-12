@@ -22,7 +22,7 @@ const Signin = () => {
       axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       console.log(body)
-      await api.post('/api/v1/user/login',{"email":document.getElementById('email').value,"password":document.getElementById('password').value})
+      await api.post('/api/v1/user/login',body)
       dispatch(getUserDetails()) 
     } catch (error) {
       document.getElementById('emailwrong').style.visibility = 'visible'
