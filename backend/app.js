@@ -7,6 +7,9 @@ const {sendToken} = require('./extra')
 const cookieParser = require('cookie-parser')
 const app = express()
 const cors = require('cors')
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json();
+app.use(jsonParser); // use it globally
 app.use(express.json())
 app.use(cookieParser())
 app.use('/api/v1',product)
