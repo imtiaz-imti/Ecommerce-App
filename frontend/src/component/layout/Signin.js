@@ -18,7 +18,10 @@ const Signin = () => {
         "email":document.getElementById('email').value,
         "password":document.getElementById('password').value,
       }
-      axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+      axios.defaults.headers.common = {
+        "Content-Type": "application/json"
+      }
+      // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       console.log(body)
       await api.post('/api/v1/user/login',body)
