@@ -14,10 +14,10 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-app.use(cookieParser())
 app.use('/api/v1',product)
 app.use('/api/v1/user',user)
 app.use('/api/v1/order',router)
 app.use(errorHandler)
 app.use(sendToken)
+app.use(cookieParser())
 module.exports = app
