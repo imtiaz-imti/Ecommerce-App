@@ -13,11 +13,11 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
 }))
-app.use(sendToken)
-app.use(cookieParser())
 app.use(express.json())
 app.use('/api/v1',product)
 app.use('/api/v1/user',user)
 app.use('/api/v1/order',router)
 app.use(errorHandler)
+app.use(sendToken)
+app.use(cookieParser())
 module.exports = app
