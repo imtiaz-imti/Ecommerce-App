@@ -44,8 +44,8 @@ const sendToken = (userNew,statusCode,res)=>{
 }
 const isAuthenticatedUser = async (req,res,next)=>{
   try{
+     return res.status(401).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').json({success:true,token:req.cookies})
      const {token} = req.cookies
-     return res.status(401).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').json({success:true,token})
      if(!token){return next(new ErrorHander('please login to excess this resource',401))}
      const data =  jwt.verify(token,process.env.JWT_SECRET)
      req.user = await user.findById(data.id)
