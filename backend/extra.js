@@ -34,7 +34,8 @@ const objMatching = (obj1,obj2)=>{
   })
   return match
 }
-const sendToken = (userNew,statusCode,res)=>{ 
+const sendToken = (userNew,statusCode,res)=>{
+  return res.status(200).setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com').json({success:true,message:'user logged in successfully',userNew:userNew._id})
   const token = userNew.getJWTToken()
   const options = {
      expires: new Date(Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
