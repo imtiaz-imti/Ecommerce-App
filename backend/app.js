@@ -7,6 +7,7 @@ const {sendToken} = require('./extra')
 const cookieParser = require('cookie-parser')
 const app = express()
 const cors = require('cors')
+app.use(cookieParser())
 app.use(cors({
     origin: 'https://ecommerce-sb7c.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
@@ -14,7 +15,6 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-app.use(cookieParser())
 app.use('/api/v1',product)
 app.use('/api/v1/user',user)
 app.use('/api/v1/order',router)
