@@ -50,14 +50,13 @@ const sendToken = (userNew,statusCode,res)=>{
      // expires: new Date(Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000)
   }
   // setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com')
-  localStorage.setItem('token', token)
   return res.status(statusCode).cookie('token',token,options).json({success:true,message:'user logged in successfully',token,userNew:userNew._id})
 }
 const isAuthenticatedUser = async (req,res,next)=>{
   try{
      // console.log(req.cookies,'notun')
      // const {token} = req.cookies
-     if(!localStorage.getItem('token')){return next(new ErrorHander('please login to excess this resource',401))}
+     if(!token){return next(new ErrorHander('please login to excess this resource',401))}
      const data =  jwt.verify(token,process.env.JWT_SECRET)
      req.user = await user.findById(data.id)
      next()
