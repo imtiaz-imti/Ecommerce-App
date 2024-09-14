@@ -15,13 +15,14 @@ const Signup = () => {
   const submit = async ()=>{
     document.getElementById('tao').style.visibility = 'visible'
     const body = {
-      name:document.getElementById('name').value,
-      email:document.getElementById('email').value,
-      password:document.getElementById('password').value,
+      "name":document.getElementById('name').value,
+      "email":document.getElementById('email').value,
+      "password":document.getElementById('password').value,
     }
     try {
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       await api.post('api/v1/user/new',body)
+      localStorage.setItem('status','online')
       dispatch(getUserDetails())
     } catch (error) {
       document.getElementById('namewrong').style.visibility = 'visible'
