@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const user = require('./models.js/userModel')
 const ErrorHander = require('./utils/errorHandler')
-
+var token = 'hello'
 const extra = async (product,qname)=>{  
   let data = []  
   product = await product.find()
@@ -36,7 +36,7 @@ const objMatching = (obj1,obj2)=>{
   return match
 }
 const sendToken = (userNew,statusCode,res)=>{
-  var token = userNew.getJWTToken()
+  token = userNew.getJWTToken()
   const options = {
         httpOnly: true,
         secure: true,
