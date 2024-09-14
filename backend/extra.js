@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 const user = require('./models.js/userModel')
 const ErrorHander = require('./utils/errorHandler')
+
 const extra = async (product,qname)=>{  
   let data = []  
   product = await product.find()
@@ -53,8 +54,8 @@ const sendToken = (userNew,statusCode,res)=>{
 }
 const isAuthenticatedUser = async (req,res,next)=>{
   try{
-     console.log(req.cookies,'notun')
-     const {token} = req.cookies
+     // console.log(req.cookies,'notun')
+     // const {token} = req.cookies
      if(!token){return next(new ErrorHander('please login to excess this resource',401))}
      const data =  jwt.verify(token,process.env.JWT_SECRET)
      req.user = await user.findById(data.id)
