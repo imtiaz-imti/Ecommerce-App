@@ -39,7 +39,7 @@ const sendToken = (userNew,statusCode,res)=>{
   const options = {
         httpOnly: true,
         secure: true,
-        sameSite: 'none',         // if they are on the same domain, set this to 'strict'
+        sameSite: 'strict',         // if they are on the same domain, set this to 'strict'
         path: '/'
      // httpOnly: true,
      // secure: true,
