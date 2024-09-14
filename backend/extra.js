@@ -37,8 +37,11 @@ const objMatching = (obj1,obj2)=>{
 const sendToken = (userNew,statusCode,res)=>{
   const token = userNew.getJWTToken()
   const options = {
-     expires: new Date(Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
-     httpOnly:true
+     httpOnly: true,
+     secure: true,
+     sameSite: 'none',
+     domain: 'retail-market-app-backend.onrender.com',
+     expires: new Date(Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000)
   }
   // setHeader('Access-Control-Allow-Origin', 'https://ecommerce-sb7c.onrender.com')
   return res.status(statusCode).cookie('token',token,options).json({success:true,message:'user logged in successfully',token,userNew:userNew._id})
