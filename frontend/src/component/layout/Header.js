@@ -19,7 +19,7 @@ const Header = () => {
     try {
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       await api.post('/api/v1/user/logout')
-      dispatch(getUserDetails())
+      dispatch(getUserDetails('logout'))
     } catch (error) {}
   }
   const {ref} = useSelector((state) => state.products)
