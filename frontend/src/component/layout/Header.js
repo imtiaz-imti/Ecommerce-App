@@ -53,11 +53,11 @@ const Header = () => {
           <div className='optionmenu1'><Link to="/" style={{color: 'black'}}>Home</Link></div>
           <div className='optionmenu1'><Link to="/product" style={{color: 'black'}}>Product</Link></div>
           <div className='optionmenu1'><Link to="/search" style={{color: 'black'}}>Search product</Link></div>
-          {userDetails && userDetails.role === 'admin'?
+          {userDetails && userDetails !=== 'logout' && userDetails.role === 'admin'?
               <div className ='optionmenu1'><Link to="/admin" style={{color: 'black'}}>Admin</Link></div>:<></>}
-          {userDetails?
+          {userDetails && userDetails !=== 'logout'?
               <div className ='optionmenu1'><Link to="/profile" style={{color: 'black'}}>Profile</Link></div>:<></>}
-          {!userDetails?
+          {!userDetails || userDetails === 'logout'?
               <div className ='optionmenu1'><Link to="/signin" style={{color: 'black'}}>Sign-in</Link></div>
               :<div className='optionmenu1' onClick={logout}><Link to="/" style={{color: 'black'}}>Log-out</Link></div>}
         </div>  
@@ -69,13 +69,13 @@ const Header = () => {
             </div>
             <div className='ele22' id='ele22'>E-Commerce</div>
             <div className='ele23' id='ele23'>
-              {!userDetails?
+              {!userDetails || userDetails === 'logout'?
               <div className ='contact'><Link to="/signin" style={{color: 'black'}}>Sign-in</Link></div>
               :<div className='contact' onClick={logout}><Link to="/" style={{color: 'black'}}>Log-out</Link></div>}
-              {userDetails && userDetails.role === 'admin'?
+              {userDetails && userDetails !=== 'logout' && userDetails.role === 'admin'?
               <div className ='about'><Link to="/admin" style={{color: 'black'}}>Admin</Link></div>:<></>}
               <div className ='search'><Link to="/search" style={{color: 'black'}}><img src='https://img.icons8.com/?size=50&id=132&format=png' alt='#'/></Link></div>
-              {userDetails?
+              {userDetails && userDetails !=== 'logout'?
               <div className ='con'><Link to="/profile" style={{color: 'black'}}><img src='https://img.icons8.com/?size=24&id=86818&format=png' alt='#'/></Link></div>:<></>}
             </div>
         </div>
