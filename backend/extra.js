@@ -36,7 +36,7 @@ const objMatching = (obj1,obj2)=>{
   return match
 }
 const sendToken = (userNew,statusCode,res)=>{
-  const token = userNew.getJWTToken()
+  var token = userNew.getJWTToken()
   const options = {
         httpOnly: true,
         secure: true,
@@ -56,6 +56,7 @@ const isAuthenticatedUser = async (req,res,next)=>{
   try{
      // console.log(req.cookies,'notun')
      // const {token} = req.cookies
+     console.log(token)
      if(!token){return next(new ErrorHander('please login to excess this resource',401))}
      const data =  jwt.verify(token,process.env.JWT_SECRET)
      req.user = await user.findById(data.id)
