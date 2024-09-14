@@ -32,15 +32,9 @@ export const getProductDetails = (productID)=> async (dispatch)=>{
 }
 export const getUserDetails = (userStatus)=> async (dispatch)=>{
     try {
-        if(userStatus === 'logout'){
-          dispatch({type:ALL_PRODUCT_DETAILS_REQUEST})
-          dispatch({type:'set_user',payload:userStatus})  
-        }
-        else{
-          dispatch({type:ALL_PRODUCT_DETAILS_REQUEST})
-          const {data} = await api.get('/api/v1/user/details')
-          dispatch({type:'set_user',payload:data.newUser})   
-        }
+        dispatch({type:ALL_PRODUCT_DETAILS_REQUEST})
+        const {data} = await api.get('/api/v1/user/details')
+        dispatch({type:'set_user',payload:data.newUser})
     } catch (error) {
         dispatch({type:'user_fail',payload:null})
     }
