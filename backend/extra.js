@@ -45,7 +45,7 @@ const sendToken = (userNew,statusCode,res)=>{
 }
 const isAuthenticatedUser = async (req,res,next)=>{
   try{
-     console.log(req.cookies,'hello')
+     console.log(req.cookies,'notun')
      const token = req.cookies['token']
      if(!token){return next(new ErrorHander('please login to excess this resource',401))}
      const data =  jwt.verify(token,process.env.JWT_SECRET)
