@@ -79,8 +79,14 @@ export const productReducer = createReducer(productReducerInitialState, (builder
   export const userDetailsReducer = createReducer(userDetailsInitialState, (builder) => {
     builder
       .addCase('set_user', (state, action) => {
-        state.userDetails = action.payload
-        state.loginFailed = false
+        if(state.userDetails !== 'logout'){
+          state.userDetails = action.payload
+          state.loginFailed = false  
+        }
+        else{
+          state.userDetails = 'logout'
+          state.loginFailed = false  
+        }
       })
       .addCase('user_fail', (state, action) => {
         state.userDetails = action.payload
