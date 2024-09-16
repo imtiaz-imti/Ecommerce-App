@@ -13,7 +13,7 @@ class ApiFeatures{
      //     keyword.append(ele) 
      //   } 
      // }) 
-     return keyword
+     return this.query
      if(keyword === 'Empty'){return this}
      this.query = await product.find(keyword)
      return this 
