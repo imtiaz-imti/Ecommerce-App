@@ -6,8 +6,7 @@ class ApiFeatures{
    }
    async search(){
      this.query = await product.find()
-     const keyword = this.qrstr ? {name: {$regex:this.qrstr,$options:'i'}} : 'Empty'
-     return Object.keys(this.qrstr)[0]
+     const keyword = this.qrstr ? {name: {$regex:Object.keys(this.qrstr)[0],$options:'i'}} : 'Empty'
      if(keyword === 'Empty'){return this}
      this.query = await product.find(keyword)
      return this 
