@@ -13,7 +13,7 @@ const createProduct = async (req,res,next)=>{
 }
 const getAllProduct = async (req,res,next)=>{
   try{
-    return res.status(200).setHeader('Access-control-allow-origin','*').json(req.query.keyword)
+    return res.status(200).setHeader('Access-control-allow-origin','*').json(await new ApiFeatures(req.query).search())
     const apiFeatures = await new ApiFeatures(req.query).search()
     let data = apiFeatures.query
     if(data.length === 0){
