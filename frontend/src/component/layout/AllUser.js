@@ -27,7 +27,7 @@ const AllUser = ({props}) => {
     try {
       const api = axios.create({baseURL :'https://retail-market-app-backend.onrender.com'})
       await api.put('/api/v1/user/admin/profile/update/'+props.user._id,body)
-      window.location.reload()
+      // window.location.reload()
     } catch (error){}
   }
   return (
