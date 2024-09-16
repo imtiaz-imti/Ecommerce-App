@@ -8,11 +8,11 @@ class ApiFeatures{
      this.query = await product.find()
      let keyword = [] 
      // const keyword = this.qrstr ? product.map(ele => ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()) : 'Empty'
-     product.forEach((ele)=>{
-       if(ele.name === Object.keys(this.qrstr)[0]){
-         keyword.append(ele) 
-       } 
-     }) 
+     // product.forEach((ele)=>{
+     //   if(ele.name === Object.keys(this.qrstr)[0]){
+     //     keyword.append(ele) 
+     //   } 
+     // }) 
      return keyword
      if(keyword === 'Empty'){return this}
      this.query = await product.find(keyword)
