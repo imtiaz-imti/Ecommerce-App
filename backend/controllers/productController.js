@@ -13,20 +13,11 @@ const createProduct = async (req,res,next)=>{
 }
 const getAllProduct = async (req,res,next)=>{
   try{
-    return res.status(200).setHeader('Access-control-allow-origin','*').json(await new ApiFeatures(req.query).search())
     const apiFeatures = await new ApiFeatures(req.query).search()
     let data = apiFeatures.query
     if(data.length === 0){
-      let ele = await extra(product,req.query.keyword.split(' ').map(word=>word.toLowerCase()))
-      if(ele.length>0){
-        ele = (await apiFeatures.filter(ele)).query
-        if(ele.length === 0){return next(new ErrorHander('product not found',404))}
-        return res.status(200).setHeader('Access-control-allow-origin','*').json(ele)
-      }
       return next(new ErrorHander('product not found',404))
     }
-    data = (await apiFeatures.filter(data)).query
-    if(data.length === 0){return next(new ErrorHander('product not found',404))}
     res.status(200).setHeader('Access-control-allow-origin','*').json(data)
   }catch(err){
     console.log(err.message)
