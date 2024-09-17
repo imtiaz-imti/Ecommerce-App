@@ -9,8 +9,8 @@ class ApiFeatures{
      let keyword = [] 
      // const keyword = this.qrstr ? product.map(ele => ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()) : 'Empty'
      this.query.forEach((ele)=>{
-       if(ele.name !=== Object.keys(this.qrstr)[0]){
-         keyword.append(ele) 
+       if(ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()){
+         keyword.push(ele) 
        } 
      }) 
      return keyword
