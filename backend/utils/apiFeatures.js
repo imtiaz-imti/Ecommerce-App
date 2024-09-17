@@ -5,7 +5,7 @@ class ApiFeatures{
      this.qrstr = qrstr
    }
    async search(){
-     if(this.qrstr === {}){
+     if(Object.keys(this.qrstr).length === 0){
        return []  
      } 
      this.query = await product.find()
