@@ -5,11 +5,12 @@ class ApiFeatures{
      this.qrstr = qrstr
    }
    async search(){
+     return this.qrstr 
      this.query = await product.find()
      let keyword = [] 
      // const keyword = this.qrstr ? product.map(ele => ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()) : 'Empty'
      this.query.forEach((ele)=>{
-       if(this.qrstr && ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()){
+       if(ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()){
          keyword.push(ele) 
        } 
      }) 
