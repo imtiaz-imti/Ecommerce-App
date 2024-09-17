@@ -5,21 +5,18 @@ class ApiFeatures{
      this.qrstr = qrstr
    }
    async search(){
-     if(Object.keys(this.qrstr).length === 0){
-       return []  
+     this.query = await product.find() 
+     if(Object.keys(this.qrstr).length === 0){ 
+       return this  
      } 
-     this.query = await product.find()
      let keyword = [] 
-     // const keyword = this.qrstr ? product.map(ele => ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()) : 'Empty'
      this.query.forEach((ele)=>{
        if(ele.name.toLowerCase() === Object.keys(this.qrstr)[0].toLowerCase()){
          keyword.push(ele) 
        } 
-     }) 
-     return keyword
-     if(keyword === 'Empty'){return this}
-     this.query = await product.find(keyword)
-     return this 
+     })
+     this.query = keyword 
+     return this
    }
    async filter(ele){
      const limit = Number(this.qrstr.limit) || 20
