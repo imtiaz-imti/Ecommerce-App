@@ -210,20 +210,181 @@ body{
 .homecompo{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(117, 79, 79);
+    background-color: rgb(37, 35, 35);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     color: white;
+    overflow: hidden;
+}
+.homecompo1{
+  width: 100vw;
+  height: 50vh;
+  background-color: rgb(71, 68, 68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+}
+.homecompo2{
+  width: 100vw;
+  height: 120vh;
+  background-color: rgb(15, 5, 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+}
+.homecompo3{
+  width: 100vw;
+  height: 50vh;
+  background-color: rgb(53, 70, 67);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+}
+.myco1{
+  width: 50%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.myco2{
+  width: 50%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.myco2 img{
+  width: 30px;
+  height: 30px;
+}
+.ani1{
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  overflow: hidden;
+}
+.ani2{
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.ani3{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+}
+.ani4{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+}
+.ani5{
+  width: 40%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  gap: 5px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.ani6{
+  width: 90%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.ani6 img{
+  width: 70px;
+  height: 70px;
+}
+.ani7{
+  width: 90%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.scro33{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+}
+.scro34{
+  width: 20%;
+  height: 100%;
+  background-color: rgb(231, 226, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  gap: 10px;
+}
+.scro34 img{
+  width: 20px;
+  height: 20px;
 }
 .homecompo .text1{
     font-size: 6vw;
     font-weight: bold;
+    overflow: hidden;
 }
 .homecompo .text2{
     font-size: 3vw;
     font-weight: bold;
+    overflow: hidden;
+}
+.homecompo1 .text3{
+  width: 80%;
+  font-size: 25px;
+  font-weight: 100;
+  text-align: center;
 }
 .productcompo{
     width: 100vw;
@@ -1100,6 +1261,50 @@ body{
   }
 }
 @media only screen and (min-width: 200px) and (max-width: 1300px){ 
+  .myco1{
+     width: 90%;
+     height: 40px;
+  }
+  .myco2{
+    width: 90%;
+    font-size: 15px;
+  }
+  .ani1{
+    font-size: 30px;
+  }
+  .ani5{
+    width: 100px;
+    height: 100px;
+    font-size: 15px;
+    gap: 1px;
+  }
+  .ani5 img{
+    width: 40px;
+    height: 40px;
+  }
+  .scro33{
+    height: 40px;
+    justify-content: center;
+  }
+  .scro34{
+    width: 40%;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .scro34 img{
+    width: 15px;
+    height: 15px;
+  }
+  .homecompo .text1{
+    font-size: 24px;
+  }
+  .homecompo .text2{
+    font-size: 15px
+  }
+  .homecompo1 .text3{
+    font-size: 20px;
+  }
   .pagenf{
     font-size: 25px;
   }
@@ -1116,12 +1321,6 @@ body{
   .option img{
     width: 20px;
     height: 20px;
-  }
-  .homecompo .text1{
-    font-size: 24px;
-}
-  .homecompo .text2{
-    font-size: 12px
   }
   .elelink{
     width: 45vw;
@@ -1417,6 +1616,13 @@ body{
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 1300px){ 
+  .ani5{
+    font-size: 20px;
+  }
+  .ani5 img{
+    width: 50px;
+    height: 50px;
+  }
   .ele1{
     font-size: 12px;
   }
@@ -1508,6 +1714,18 @@ body{
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 1300px){ 
+  .myco1{
+    width: 90%;
+    height: 60px;
+ }
+ .myco2{
+   width: 90%;
+   font-size: 20px;
+ }
+ .myco2 img{
+   width: 40px;
+   height: 40px;
+ }
   .pagenf{
     font-size: 35px;
   }
@@ -1754,7 +1972,10 @@ body{
     height: 40px;
   }
 }
-@media only screen and (min-width: 800px) and (max-width: 1300px){ 
+@media only screen and (min-width: 800px) and (max-width: 1300px){
+  .homecompo1 .text3{
+    font-size: 30px;
+  } 
   .ele1{
     font-size: 14px;
   }
@@ -2130,7 +2351,4 @@ body{
   .useraddreview{
     height: 70vh;
   }
-}  
-
-  
-  
+}
