@@ -382,9 +382,65 @@ body{
 }
 .homecompo1 .text3{
   width: 80%;
-  font-size: 25px;
-  font-weight: 100;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+  color: black;
+  font-weight: bold;
+}
+.text310{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.text311{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.text312{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.text3101{
+  width: 62%;
+  height: 88%;
+  background-color: white;
+  border-radius: 2px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text3111{
+  width: 78%;
+  height: 88%;
+  background-color: white;
+  border-radius: 2px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text3121{
+  width: 40%;
+  height: 88%;
+  background-color: white;
+  border-radius: 2px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .productcompo{
     width: 100vw;
@@ -1283,11 +1339,13 @@ body{
     height: 40px;
   }
   .scro33{
-    height: 40px;
-    justify-content: center;
+    height: 60px;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
   .scro34{
-    width: 40%;
+    width: 120px;
+    height: 40px;
     border-radius: 5px;
     font-size: 15px;
     margin-top: 10px;
@@ -1303,7 +1361,29 @@ body{
     font-size: 15px
   }
   .homecompo1 .text3{
-    font-size: 20px;
+    font-size: 14px;
+    width: 90%;
+  }
+  .text310{
+    height: 27%;
+  }
+  .text311{
+    height: 27%;
+  }
+  .text312{
+    height: 27%;
+  }
+  .text3101{
+    width: 100%;
+    height: 100%;
+  }
+  .text3111{
+    width: 100%;
+    height: 100%;
+  }
+  .text3121{
+    width: 100%;
+    height: 100%;
   }
   .pagenf{
     font-size: 25px;
@@ -1615,7 +1695,10 @@ body{
     font-size: 20px;
   }
 }
-@media only screen and (min-width: 400px) and (max-width: 1300px){ 
+@media only screen and (min-width: 400px) and (max-width: 1300px){
+  .homecompo1 .text3{
+    font-size: 15px;
+  } 
   .ani5{
     font-size: 20px;
   }
@@ -1714,6 +1797,9 @@ body{
   }
 }
 @media only screen and (min-width: 700px) and (max-width: 1300px){ 
+  .homecompo1 .text3{
+    font-size: 20px;
+  }
   .myco1{
     width: 90%;
     height: 60px;
@@ -2350,5 +2436,36 @@ body{
   }
   .useraddreview{
     height: 70vh;
+  }
+}
+@media only screen and (min-height: 600px) and (max-width: 1300px){
+  .homecompo{
+    height: 40vh;
+  }
+  .homecompo2{
+    height: 80vh;
+  }
+  .homecompo3{
+    height: 20vh;
+  }
+}
+@media only screen and (min-height: 700px) and (max-width: 1300px){
+  .homecompo2{
+    height: 70vh;
+  }
+}
+@media only screen and (min-height: 800px) and (max-width: 1300px){
+  .homecompo2{
+    height: 60vh;
+  }
+}
+@media only screen and (min-height: 1100px) and (max-width: 1300px){
+  .homecompo2{
+    height: 55vh;
+  }
+}
+@media only screen and (min-height: 1200px) and (max-width: 1300px){
+  .homecompo2{
+    height: 45vh;
   }
 }
