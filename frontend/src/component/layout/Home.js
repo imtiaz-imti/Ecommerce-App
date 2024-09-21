@@ -20,7 +20,7 @@ const Home = () => {
           duration:2,
           delay:1
         })
-        gsap.from('.text3', {
+        gsap.from('.text3101', {
           scrollTrigger:{
             trigger : '.homecompo1',
             scroller:'body',
@@ -30,6 +30,28 @@ const Home = () => {
           x:-1000,
           duration:2,
           delay:1
+        })
+        gsap.from('.text3111', {
+          scrollTrigger:{
+            trigger : '.homecompo1',
+            scroller:'body',
+            start:'top 60%',     
+          },
+          opacity:0,
+          x:1000,
+          duration:2,
+          delay:2
+        })
+        gsap.from('.text3121', {
+          scrollTrigger:{
+            trigger : '.homecompo1',
+            scroller:'body',
+            start:'top 60%',     
+          },
+          opacity:0,
+          x:-1000,
+          duration:2,
+          delay:3
         })
         gsap.from('.ghur1', {
           scrollTrigger:{
@@ -626,7 +648,7 @@ const Home = () => {
           delay:9
         })
         gsap.from('.scro34 img', {
-          y:-20,
+          y:-10,
           repeat:-1,
           yoyo:true,
           duration:2,
@@ -643,49 +665,59 @@ const Home = () => {
        <div className='scro33'>
          <div className='scro34'>
           <div>Scroll Down</div>
-          <img src='https://img.icons8.com/?size=50&id=43830&format=png' alt='#'/>
+          <img src='https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Arrow_Bottom-64.png' alt='#'/>
          </div>
        </div>
     </div>
     <div className='homecompo1'>
-       <div className='text3'>Self-motivated and adaptable developer with applicable developing knowledge and coding skills. Organized programmer looking for an opportunity to grow as a developer and support an ambitious technology company. Collaborative communicator with relationship building skills.</div>
+       <div className='text3'>
+        <div className='text310'>
+          <div className='text3101'>Self-motivated and adaptable developer with applicable developing knowledge and coding skills</div>
+        </div>
+        <div className='text311'>
+          <div className='text3111'>Organized programmer looking for an opportunity to grow as a developer and support an ambitious technology company</div>
+        </div>
+        <div className='text312'>
+          <div className='text3121'>Collaborative communicator with relationship building skills</div>
+        </div>
+       </div>
     </div>
     <div className='homecompo2'>
       <div className='ani1'><span className='ghur1'>S</span><span className='ghur2'>k</span><span className='ghur3'>i</span><span className='ghur4'>l</span><span className='ghur5'>l</span><span className='ghur6'>s</span></div>
       <div className='ani2'>
         <div className='ani3'>
           <div className='ani5'>
-            <div className='ani6'><img id='ab' src='https://img.icons8.com/?size=48&id=v8RpPQUwv0N8&format=png' alt='image'/></div>
+            <div className='ani6'><img id='ab' src='https://cdn0.iconfinder.com/data/icons/HTML5/64/HTML_Logo.png' alt='#'/></div>
             <div className='ani7'><span id='z1'>H</span><span id='z2'>T</span><span id='z3'>M</span><span id='z4'>L</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab' src='https://img.icons8.com/?size=60&id=3BTBsJs5myRy&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab' src='https://cdn1.iconfinder.com/data/icons/social-media-logos-7/64/css-3-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z5'>C</span><span id='z6'>S</span><span id='z7'>S</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab' src='https://img.icons8.com/?size=64&id=Nkym0Ujb8VGI&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab' src='https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z8'>J</span><span id='z9'>A</span><span id='z10'>V</span><span id='z11'>A</span><span id='z12'>S</span><span id='z13'>C</span><span id='z14'>R</span><span id='z15'>I</span><span id='z16'>P</span><span id='z17'>T</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab' src='https://img.icons8.com/?size=48&id=l75OEUJkPAk4&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab' src='https://cdn3.iconfinder.com/data/icons/monitors-with-programming-languages/512/python-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z18'>P</span><span id='z19'>H</span><span id='z20'>Y</span><span id='z21'>T</span><span id='z22'>O</span><span id='z23'>N</span></div>
           </div>
         </div>
         <div className='ani4'>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab1' src='https://img.icons8.com/?size=80&id=NfbyHexzVEDk&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab1' src='https://cdn0.iconfinder.com/data/icons/logos-brands-in-colors/128/react_color-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z24'>R</span><span id='z25'>E</span><span id='z26'>A</span><span id='z27'>C</span><span id='z28'>T</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab1' src='https://img.icons8.com/?size=40&id=WNoJgbzDr3i2&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab1' src='https://cdn0.iconfinder.com/data/icons/warning-signs-6/64/warning_signs_sign_alert_ex-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z29'>E</span><span id='z30'>X</span><span id='z31'>P</span><span id='z32'>R</span><span id='z33'>E</span><span id='z34'>S</span><span id='z35'>S</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab1' src='https://img.icons8.com/?size=48&id=hsPbhkOH4FMe&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab1' src='https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/233_Node_Js_logo-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z36'>N</span><span id='z37'>O</span><span id='z38'>D</span><span id='z39'>E</span></div>
           </div>
           <div className='ani5'>
-          <div className='ani6'><div className='ani6'><img id='ab1' src='https://img.icons8.com/?size=48&id=74402&format=png' alt='image'/></div></div>
+          <div className='ani6'><div className='ani6'><img id='ab1' src='https://cdn4.iconfinder.com/data/icons/logos-3/512/mongodb-2-64.png' alt='#'/></div></div>
           <div className='ani7'><span id='z40'>M</span><span id='z41'>O</span><span id='z42'>N</span><span id='z43'>G</span><span id='z44'>O</span><span id='z45'>D</span><span id='z46'>B</span></div>
           </div>
         </div>
@@ -694,13 +726,13 @@ const Home = () => {
     <div className='homecompo3'>
        <div className='myco1'>
         <div className='myco2'>
-          <img src='https://img.icons8.com/?size=48&id=12921&format=png' alt='#'></img>
+          <img src='https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/613/aiga_telephone_bg-64.png' alt='#'></img>
           <div>+88 01792277300</div>
         </div>
        </div>
        <div className='myco1'>
          <div className='myco2'>
-           <img src='https://img.icons8.com/?size=48&id=ho8QlOYvMuG3&format=png' alt='#'></img>
+           <img src='https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-gmail-64.png' alt='#'></img>
            <div>imtiaza0182373@gmail.com</div>
          </div>
        </div>
