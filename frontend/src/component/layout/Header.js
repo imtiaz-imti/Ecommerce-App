@@ -47,7 +47,7 @@ const Header = () => {
   }
   return (
     <div onClick={hide}>
-        <div className='ele1'>Discount up to 10%</div>
+        <div className='ele1'>ecommerce project with profile</div>
         <div className='ele2'>
         <div className='optionmenu' id='optionmenu'>
           <div className='optionmenu1' id='c1' onClick={c1}><img src='https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_640.png' alt='#'/></div>
